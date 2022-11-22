@@ -37,45 +37,46 @@ const pizzas = [
     }
 ]
 
-const stockDePizaas = (pizzas) => {
-    console.log('Nuestras pizzas 😁 ==> "')
-    pizzas.map((elemnt) => {
-         console.log(`${elemnt.nombre}  $${elemnt.precio}`)
-    })
-}
-stockDePizaas(pizzas)
+
+const form = document.getElementById('formulario');
+const inputNumber = document.getElementById('num');
+const containerPizza = document.querySelector('.cont-pizza')
 
 
-const idImpar = (pizzas) => {
-    const pizzasImpares = pizzas.filter((pizza) => {
-        return pizza.id %2 !== 0;
-    })
-    return pizzasImpares.map((elem)=> {
-        console.log(`Pizza Impar --> ${elem.nombre} $${elem.precio}`)
-    })
-}
-idImpar(pizzas)
+let pizza = [];
 
-
-const precioMenor600 =(pizzas) => pizzas.precio < 600;
-if(pizzas.some(precioMenor600)){
-    console.log('Hay pizzas menor a $600')
-}
-else {
-    console.log('No hay, lo siento')
-}
-
-pizzasEconómicas(pizzas)
-
-
-const ingredientes = (pizzas) => {
-    pizzas.forEach(pizza => {
-        console.log(`Los ingredientes de la ${pizza.nombre} son:`)
-        pizza.forEach(ingrediente => {
-            console.log(ingrediente)
-        })
-    });
+const createHtmlPizza = ({nombre,precio}) => {
+    return `
+        <div class="card">
+            <h2>${nombre}</h2>
+            <div class="card-price">
+                <h3 class="price">${precio}</h3>
+                <div></div>
+            </div>
+        </div>
     
+    `
 }
 
-ingredientes(pizzas)
+const handleSubmit = (e) => {
+    const pizzaNumber = parseInt(inputNumber.value);
+    const result = pizzas.find(el => el.id === pizzaNumber)
+    if(result){
+        pizza = [result]
+        renderElementPizza(pizza)
+    }
+    else {
+        checkInput(inputNumber);
+    }
+    inputNumber.value = ""
+
+}
+const renderElementPizza = (pizza) => {
+    const eleccion = pizza.map(el => createHtmlPizza(el)).join('');
+    containerPizza.innerHTML = eleccion
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleSubmit();
+})

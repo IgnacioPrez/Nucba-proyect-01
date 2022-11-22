@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-cont {
+    width: 100%;
+    background-color: #f48d8b;
+    height: 50px;
+    display: flex;
+    gap: 16px;
+}
+.header-cont-logo {
+    height: 50px;
+}
+.header-cont-logo img{
+    height: 100%;    
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 35em;
+    display: flex;
+    align-items: center;
+}
+.hero::before{
+    content: "";
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background: url('../img/food-delivery-boy.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(80%);
+}
+.hero-cont {
+    position: relative;
+    right: -65%;
+    width: 30%;
+    padding: 1em;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input {
+    line-height: 28px;
+    border: 1.5px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+   }
+   
+   .input:focus, input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+   }
+   
+   .input::placeholder {
+    color: #777;
+   }
+   
+   .input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }
+
+   .form {
+    display: flex;
+    gap: 20px;
+   }
+   .btn {
+    position: relative;
+    display: inline-block;
+    padding: 5px 3px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #f48d8b;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #f48d8b;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #725AC1;
+  }
+  
+  .btn:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #f48d8b;
+  }
+  
+  .btn:active {
+    transform: scale(0.9);
+  }
+
+.card {
+    width: 17rem;
+    border-bottom: 4px solid #000446;
+    box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
+    font-family: "Poppins", sans-serif;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    border-bottom: 4px solid #000446;
+}
+.card-price {
+    position: relative;
+    background: #fdbd4a;
+    width: 14.46rem;
+    margin-left: -0.65rem;
+    padding: .2rem 1.2rem;
+    border-radius: 5px 0 0 5px;
+}
+.price {
+    margin: 0;
+    padding-top: .4rem;
+    display: flex;
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+.price::before {
+    content: "$";
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.price::after{
+    content: "/ handle";
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card-price div {
+    position: absolute;
+    bottom: -23px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid #c58102;
+    border-bottom: 10px solid transparent;
+    border-right: 13px solid transparent;
+    z-index: -6;
+  }
+.error {
+    background-color: #e1aead;
+    width: 83%;
+    height: 2.5rem;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 5px;
+    font-size: medium;
+    border-radius: 5px;
+    color: #fff;
+}
+.error img {
+    height: 80%;
+    width: 20%;
+    opacity: .8;
+}
+.success{
+    display: none;
+}
