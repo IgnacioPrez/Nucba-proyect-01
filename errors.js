@@ -18,9 +18,11 @@ const checkInput = (input) => {
     const filtro = pizzas.every(el => el.id !== inputSelected)
     if(isEmpty(inputSelected)){
         inputError("Es necesario ingresar un numero")
+
     }
     else if(filtro){
         inputError("No tenemos en stock esa Piza")
+        
     }
     else {
         inputSuccess()
